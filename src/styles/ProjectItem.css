@@ -1,0 +1,61 @@
+/* Single project row */
+
+.project {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.project__title {
+  font-size: 1.25rem;
+  transition: text-decoration-color 150ms var(--ease-out);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.15em;
+}
+
+.project__title:hover {
+  text-decoration-color: var(--color-text);
+}
+
+.project__description {
+  color: var(--color-muted);
+  line-height: var(--line-height-body);
+}
+
+.project__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0;
+}
+
+.project__tag {
+  font-size: var(--text-size-small);
+  color: var(--color-muted);
+  border: 1px solid var(--color-border);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.project__link {
+  font-size: var(--text-size-small);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-muted);
+  text-underline-offset: 0.2em;
+}
+
+.project__link:hover {
+  text-decoration-color: currentColor;
+}

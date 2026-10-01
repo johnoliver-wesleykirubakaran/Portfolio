@@ -1,0 +1,9 @@
+/* About */
+
+.about__paragraph {
+  margin-bottom: 1.25rem;
+}
+
+.about__paragraph:last-child {
+  margin-bottom: 0;
+}

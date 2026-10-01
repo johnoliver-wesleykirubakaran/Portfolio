@@ -1,0 +1,12 @@
+/* Footer */
+
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding-block: 2rem;
+  text-align: center;
+}
+
+.footer__text {
+  font-size: var(--text-size-small);
+  color: var(--color-muted);
+}
