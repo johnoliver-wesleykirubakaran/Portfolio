@@ -25,18 +25,49 @@ export interface ProjectLink {
   readonly external: boolean;
 }
 
-/** A single project, rendered as one row of the stacked projects list. */
-export interface Project {
-  readonly title: string;
-  /** One-line summary of what the project does. */
+/** Project evaluation metric key-value pair. */
+export interface ProjectMetric {
+  readonly label: string;
+  readonly value: string;
+  readonly detail?: string;
+}
+
+/** Step in a multi-stage technical workflow. */
+export interface PipelineStep {
+  readonly id: string;
+  readonly label: string;
+  readonly sublabel: string;
   readonly description: string;
+}
+
+/** A single project, rendered with editorial hierarchy and technical evidence. */
+export interface Project {
+  readonly id: string;
+  readonly title: string;
+  readonly subtitle?: string;
+  /** One-line or concise summary of what the project does. */
+  readonly description: string;
+  /** Detailed technical context or architectural notes. */
+  readonly details?: readonly string[];
   /** Short neutral chips shown beneath the description. */
   readonly tags: readonly string[];
   /** May be empty when a project has no public links yet. */
   readonly links: readonly ProjectLink[];
+  /** Verified performance/benchmark metrics. */
+  readonly metrics?: readonly ProjectMetric[];
+  /** Optional pipeline visualization stages. */
+  readonly pipelineSteps?: readonly PipelineStep[];
+  /** Flag to display as hero featured project showcase. */
+  readonly featured?: boolean;
 }
 
-/** A named group of skills, rendered as a plain list. Never a bar or percentage. */
+/** Technical focus interest item. */
+export interface TechnicalInterest {
+  readonly title: string;
+  readonly description: string;
+}
+
+/** A named group of skills, rendered as a structured technical overview. */
 export interface SkillGroup {
   readonly label: string;
   readonly items: readonly string[];
@@ -59,21 +90,28 @@ export interface ContactLink {
   readonly ariaLabel: string;
 }
 
-/** About section: a heading and two to three short paragraphs. */
+/** About section: editorial hook, foundational paragraphs, and technical interests. */
 export interface AboutContent {
+  readonly sectionNumber: string;
   readonly heading: string;
+  readonly hook: string;
   readonly paragraphs: readonly string[];
+  readonly interests: readonly TechnicalInterest[];
 }
 
-/** Projects section: a heading and the stacked list of projects. */
+/** Projects section: section number, heading, and items. */
 export interface ProjectsContent {
+  readonly sectionNumber: string;
   readonly heading: string;
+  readonly intro: string;
   readonly items: readonly Project[];
 }
 
-/** Skills section: a heading and the grouped skill lists. */
+/** Skills section: section number, heading, and grouped skill lists. */
 export interface SkillsContent {
+  readonly sectionNumber: string;
   readonly heading: string;
+  readonly intro: string;
   readonly groups: readonly SkillGroup[];
 }
 
@@ -83,9 +121,12 @@ export interface SkillsContent {
  * unfinished site never shows a dead link.
  */
 export interface ContactContent {
+  readonly sectionNumber: string;
   readonly heading: string;
   /** Short line introducing the links. */
   readonly intro: string;
+  readonly location: string;
+  readonly availability: string;
   readonly github: string;
   readonly linkedin: string;
   /** Bare email address. Prefixed with `mailto:` automatically. */
@@ -93,16 +134,34 @@ export interface ContactContent {
   readonly resume: string;
 }
 
+/** Hero section content definition. */
+export interface HeroContent {
+  readonly eyebrow: string;
+  readonly name: string;
+  readonly description: string;
+  readonly currentFocus: string;
+  readonly primaryAction: {
+    readonly label: string;
+    readonly href: string;
+  };
+  readonly secondaryAction: {
+    readonly label: string;
+    readonly href: string;
+    readonly external: boolean;
+  };
+}
+
 /** Footer section. */
 export interface FooterContent {
   readonly text: string;
+  readonly colophon: string;
 }
 
 /** The complete shape of `src/data/content.ts`. */
 export interface SiteContent {
   readonly name: string;
-  /** One-line intro shown directly under the name. */
   readonly tagline: string;
+  readonly hero: HeroContent;
   readonly nav: readonly NavItem[];
   readonly about: AboutContent;
   readonly projects: ProjectsContent;

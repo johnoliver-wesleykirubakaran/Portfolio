@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Contact Page Styles
+   ========================================================================== */
+
+.contact-section {
+  position: relative;
+  border-bottom: none;
+}
+
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.contact-page__footer {
+  border-top: 1px solid var(--color-border);
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+.contact-page__footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.contact-page__copyright {
+  font-size: var(--text-size-small);
+  color: var(--color-text);
+}
+
+.contact-page__colophon {
+  font-size: var(--text-size-small);
+  color: var(--color-subtle);
+}

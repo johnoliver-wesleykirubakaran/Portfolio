@@ -1,0 +1,13 @@
+/* ==========================================================================
+   Skills Page Styles
+   ========================================================================== */
+
+.skills-section {
+  position: relative;
+}
+
+.skills-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

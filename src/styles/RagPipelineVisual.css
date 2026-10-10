@@ -1,0 +1,158 @@
+/* ==========================================================================
+   RagPipelineVisual Styles — Interactive Workflow Pipeline
+   ========================================================================== */
+
+.rag-visual {
+  display: flex;
+  flex-direction: column;
+  background-color: #141413;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* Pipeline Flow Stages */
+.rag-visual__pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.rag-visual__stage-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rag-visual__stage-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-size-small);
+  padding: 0.45rem 0.85rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 150ms var(--ease-fast);
+}
+
+.rag-visual__stage-btn:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-text);
+  background-color: var(--color-surface-hover);
+}
+
+.rag-visual__stage-btn.active {
+  border-color: var(--color-accent-border);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent);
+}
+
+.rag-visual__stage-num {
+  font-size: var(--text-size-micro);
+  color: var(--color-subtle);
+}
+
+.rag-visual__stage-btn.active .rag-visual__stage-num {
+  color: var(--color-accent);
+}
+
+.rag-visual__connector {
+  color: var(--color-subtle);
+  font-size: 0.85rem;
+}
+
+/* Inspector Detail Box */
+.rag-visual__inspector {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background-color: #121211;
+}
+
+.rag-visual__inspector-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.rag-visual__badge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.rag-visual__badge-tag {
+  font-size: var(--text-size-micro);
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+
+.rag-visual__badge-title {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.rag-visual__eval-pill {
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  color: var(--color-subtle);
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+}
+
+.rag-visual__inspector-desc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  font-weight: 300;
+}
+
+.rag-visual__params {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 600px) {
+  .rag-visual__params {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.rag-visual__param-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.85rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+}
+
+.rag-visual__param-k {
+  font-size: var(--text-size-micro);
+  color: var(--color-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.rag-visual__param-v {
+  font-size: var(--text-size-small);
+  color: var(--color-text);
+  font-weight: 400;
+}

@@ -1,9 +1,180 @@
-/* About */
+/* ==========================================================================
+   About Component Styles — Editorial 2-Column Composition
+   ========================================================================== */
 
-.about__paragraph {
-  margin-bottom: 1.25rem;
+.about {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: start;
 }
 
-.about__paragraph:last-child {
-  margin-bottom: 0;
+@media (min-width: 900px) {
+  .about {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 4.5rem;
+  }
+}
+
+/* Left Column */
+.about__left {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.about__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.about__number {
+  font-size: var(--text-size-small);
+  color: var(--color-accent);
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+.about__heading {
+  font-size: var(--text-size-section-heading);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.about__hook {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+  font-weight: 300;
+  margin-top: 0.25rem;
+}
+
+.about__badge {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+}
+
+.about__badge-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.about__badge-label {
+  font-size: var(--text-size-micro);
+  color: var(--color-subtle);
+  letter-spacing: 0.1em;
+}
+
+.about__badge-val {
+  font-size: var(--text-size-small);
+  color: var(--color-text);
+}
+
+/* Right Column */
+.about__right {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.about__prose {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about__paragraph {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  font-weight: 300;
+}
+
+.about__paragraph:first-child {
+  color: #FFFFFF;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Current Interests */
+.about__interests {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 2.5rem;
+}
+
+.about__interests-title {
+  font-size: var(--text-size-small);
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.about__interests-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .about__interests-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.about__interest-card {
+  padding: 1.25rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 150ms var(--ease-fast), background-color 150ms var(--ease-fast);
+}
+
+.about__interest-card:hover {
+  border-color: var(--color-border-hover);
+  background-color: var(--color-surface-hover);
+}
+
+.about__interest-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about__interest-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
+.about__interest-name {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.about__interest-desc {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-muted);
 }

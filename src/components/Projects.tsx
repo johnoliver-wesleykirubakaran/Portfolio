@@ -1,7 +1,5 @@
 /**
- * Projects: a stacked list of project items.
- *
- * Renders a `<ul>` of `ProjectItem` components. No inline copy, no logic.
+ * Projects Component: Renders the curated showcase of technical projects.
  */
 
 import type { Project } from '../types/content';
@@ -9,16 +7,20 @@ import ProjectItem from './ProjectItem';
 import '../styles/Projects.css';
 
 export interface ProjectsProps {
-  /** The projects to display, already filtered of placeholder links. */
-  items: readonly Project[];
+  /** Curated projects list */
+  readonly items: readonly Project[];
 }
 
 export default function Projects({ items }: ProjectsProps) {
   return (
-    <ul className="projects" role="list">
-      {items.map((project) => (
-        <ProjectItem key={project.title} project={project} />
+    <div className="projects-feed">
+      {items.map((project, index) => (
+        <ProjectItem
+          key={project.id || project.title}
+          project={project}
+          index={index}
+        />
       ))}
-    </ul>
+    </div>
   );
 }

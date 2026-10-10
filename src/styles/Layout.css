@@ -1,0 +1,14 @@
+/* Layout — Natural fluid editorial document structure */
+
+.layout {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+}
+
+.layout__main {
+  flex: 1;
+  width: 100%;
+}

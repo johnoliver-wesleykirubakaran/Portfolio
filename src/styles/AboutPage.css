@@ -1,0 +1,9 @@
+/* ==========================================================================
+   About Page Styles
+   ========================================================================== */
+
+.about-page {
+  position: relative;
+  padding-block: clamp(5rem, 8vw, 8rem);
+  border-bottom: 1px solid var(--color-border);
+}

@@ -1,0 +1,13 @@
+/* ==========================================================================
+   Projects Page Styles
+   ========================================================================== */
+
+.projects-section {
+  position: relative;
+}
+
+.projects-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

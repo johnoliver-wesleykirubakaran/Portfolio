@@ -1,12 +1,5 @@
 /**
- * Shared section wrapper.
- *
- * Provides the consistent structure every section needs: a semantic
- * `<section>` with a stable anchor id, the centred container, the `<h2>`
- * heading, and the fade-in-on-scroll behaviour driven by `useReveal`.
- *
- * The wrapper owns presentation and reveal only. It performs no logic and
- * renders no copy of its own.
+ * Shared section wrapper with editorial header, section indexing, and scroll reveal.
  */
 
 import type { ReactNode } from 'react';
@@ -14,22 +7,45 @@ import { useReveal } from '../hooks/useReveal';
 import '../styles/Section.css';
 
 export interface SectionProps {
-  /** Element id, which is also the target of the header's anchor link. */
-  id: string;
+  /** Element id, target of anchor navigation. */
+  readonly id: string;
+  /** Section number index, e.g. "01". */
+  readonly sectionNumber?: string | undefined;
   /** Visible heading text, rendered as the section's `<h2>`. */
-  heading: string;
-  /** Section body, supplied by the calling component. */
-  children: ReactNode;
+  readonly heading: string;
+  /** Optional editorial subheading / hook. */
+  readonly subheading?: string | undefined;
+  /** Section body. */
+  readonly children: ReactNode;
+  /** Optional custom class name. */
+  readonly className?: string | undefined;
 }
 
-export default function Section({ id, heading, children }: SectionProps) {
+export default function Section({
+  id,
+  sectionNumber,
+  heading,
+  subheading,
+  children,
+  className = '',
+}: SectionProps) {
   const revealRef = useReveal<HTMLElement>();
 
   return (
-    <section id={id} className="section" ref={revealRef}>
+    <section id={id} className={`section ${className}`} ref={revealRef}>
       <div className="container">
-        <h2 className="section__heading">{heading}</h2>
-        {children}
+        {(sectionNumber || heading) && (
+          <header className="section__header">
+            {sectionNumber && (
+              <span className="section__number mono">
+                {sectionNumber} /
+              </span>
+            )}
+            <h2 className="section__heading">{heading}</h2>
+            {subheading && <p className="section__subheading">{subheading}</p>}
+          </header>
+        )}
+        <div className="section__body">{children}</div>
       </div>
     </section>
   );
